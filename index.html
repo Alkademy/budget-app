@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ClearBudget — Take Control of Your Money</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="nav" id="nav">
+        <div class="nav__container">
+            <a href="#" class="nav__logo">
+                <span class="nav__logo-icon">$</span>
+                ClearBudget
+            </a>
+            <ul class="nav__links" id="navLinks">
+                <li><a href="#features">Features</a></li>
+                <li><a href="#how-it-works">How It Works</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#testimonials">Reviews</a></li>
+            </ul>
+            <div class="nav__actions">
+                <a href="#" class="btn btn--ghost">Log in</a>
+                <a href="#" class="btn btn--primary">Get Started</a>
+            </div>
+            <button class="nav__toggle" id="navToggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero__bg">
+            <div class="hero__orb hero__orb--1"></div>
+            <div class="hero__orb hero__orb--2"></div>
+            <div class="hero__grid"></div>
+        </div>
+        <div class="container hero__content">
+            <div class="hero__text">
+                <div class="badge fade-in">✨ Trusted by 50,000+ users</div>
+                <h1 class="hero__title fade-in">
+                    Your money,<br>
+                    <span class="gradient-text">finally clear.</span>
+                </h1>
+                <p class="hero__subtitle fade-in">
+                    Track spending, set smart budgets, and reach your savings goals — all in one beautiful app designed for real life.
+                </p>
+                <div class="hero__cta fade-in">
+                    <a href="#" class="btn btn--primary btn--lg">Start for free</a>
+                    <a href="#how-it-works" class="btn btn--outline btn--lg">
+                        <span class="play-icon">▶</span>
+                        See how it works
+                    </a>
+                </div>
+                <div class="hero__stats fade-in">
+                    <div class="hero__stat">
+                        <strong data-count="4.9">0</strong>
+                        <span>App Store rating</span>
+                    </div>
+                    <div class="hero__stat">
+                        <strong data-count="2" data-suffix="M+">0</strong>
+                        <span>Transactions tracked</span>
+                    </div>
+                    <div class="hero__stat">
+                        <strong data-count="34" data-suffix="%">0</strong>
+                        <span>Avg. savings increase</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero__visual fade-in">
+                <div class="dashboard-card">
+                    <div class="dashboard-card__header">
+                        <span>Monthly Overview</span>
+                        <span class="dashboard-card__badge">March 2026</span>
+                    </div>
+                    <div class="dashboard-card__balance">
+                        <span class="label">Total Balance</span>
+                        <span class="amount">$12,847.50</span>
+                        <span class="change positive">↑ 12.4% from last month</span>
+                    </div>
+                    <div class="dashboard-card__chart">
+                        <div class="bar" style="--h: 45%"></div>
+                        <div class="bar" style="--h: 70%"></div>
+                        <div class="bar" style="--h: 55%"></div>
+                        <div class="bar" style="--h: 90%"></div>
+                        <div class="bar" style="--h: 65%"></div>
+                        <div class="bar" style="--h: 80%"></div>
+                        <div class="bar active" style="--h: 95%"></div>
+                    </div>
+                    <div class="dashboard-card__categories">
+                        <div class="category">
+                            <span class="dot" style="--color: #6366f1"></span>
+                            <span>Housing</span>
+                            <span class="category__amount">$1,200</span>
+                        </div>
+                        <div class="category">
+                            <span class="dot" style="--color: #22c55e"></span>
+                            <span>Groceries</span>
+                            <span class="category__amount">$340</span>
+                        </div>
+                        <div class="category">
+                            <span class="dot" style="--color: #f59e0b"></span>
+                            <span>Transport</span>
+                            <span class="category__amount">$180</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="floating-card floating-card--1">
+                    <span class="floating-card__icon">🎯</span>
+                    <div>
+                        <strong>Savings Goal</strong>
+                        <p>78% to vacation fund</p>
+                    </div>
+                </div>
+                <div class="floating-card floating-card--2">
+                    <span class="floating-card__icon">✅</span>
+                    <div>
+                        <strong>Budget on track</strong>
+                        <p>$420 under limit</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="logos">
+        <div class="container">
+            <p>Featured in</p>
+            <div class="logos__track">
+                <span>Forbes</span>
+                <span>TechCrunch</span>
+                <span>Wired</span>
+                <span>Bloomberg</span>
+                <span>The Verge</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">Features</span>
+                <h2>Everything you need to<br>master your finances</h2>
+                <p>Powerful tools wrapped in a simple interface. No spreadsheets, no stress.</p>
+            </div>
+            <div class="features__grid">
+                <article class="feature-card reveal">
+                    <div class="feature-card__icon">📊</div>
+                    <h3>Smart Budgeting</h3>
+                    <p>Set category limits that adapt to your spending patterns and get alerts before you overspend.</p>
+                </article>
+                <article class="feature-card reveal">
+                    <div class="feature-card__icon">🔗</div>
+                    <h3>Auto-Sync Accounts</h3>
+                    <p>Connect bank accounts securely and see all your transactions in one real-time dashboard.</p>
+                </article>
+                <article class="feature-card reveal">
+                    <div class="feature-card__icon">🎯</div>
+                    <h3>Goal Tracking</h3>
+                    <p>Create savings goals for anything — a trip, a car, or an emergency fund — and watch progress grow.</p>
+                </article>
+                <article class="feature-card reveal">
+                    <div class="feature-card__icon">📈</div>
+                    <h3>Insights & Reports</h3>
+                    <p>Understand where your money goes with visual breakdowns and personalized spending insights.</p>
+                </article>
+                <article class="feature-card reveal">
+                    <div class="feature-card__icon">🔔</div>
+                    <h3>Bill Reminders</h3>
+                    <p>Never miss a payment. Get notified before bills are due and track recurring subscriptions.</p>
+                </article>
+                <article class="feature-card reveal">
+                    <div class="feature-card__icon">🔒</div>
+                    <h3>Bank-Level Security</h3>
+                    <p>256-bit encryption and read-only access keep your financial data safe and private.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section class="how-it-works" id="how-it-works">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">How It Works</span>
+                <h2>Up and running in minutes</h2>
+                <p>Three simple steps to financial clarity.</p>
+            </div>
+            <div class="steps">
+                <div class="step reveal">
+                    <div class="step__number">01</div>
+                    <h3>Create your account</h3>
+                    <p>Sign up free in under 60 seconds. No credit card required to get started.</p>
+                </div>
+                <div class="step__connector"></div>
+                <div class="step reveal">
+                    <div class="step__number">02</div>
+                    <h3>Connect your accounts</h3>
+                    <p>Link your banks and cards securely. We import your transactions automatically.</p>
+                </div>
+                <div class="step__connector"></div>
+                <div class="step reveal">
+                    <div class="step__number">03</div>
+                    <h3>Set budgets & goals</h3>
+                    <p>Define spending limits and savings targets. We'll help you stay on track every day.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">Pricing</span>
+                <h2>Simple, transparent pricing</h2>
+                <p>Start free. Upgrade when you're ready for more.</p>
+            </div>
+            <div class="pricing__toggle reveal">
+                <span class="active" data-period="monthly">Monthly</span>
+                <button class="toggle-switch" id="pricingToggle" aria-label="Toggle billing period">
+                    <span class="toggle-switch__knob"></span>
+                </button>
+                <span data-period="yearly">Yearly <em>Save 20%</em></span>
+            </div>
+            <div class="pricing__cards">
+                <article class="pricing-card reveal">
+                    <h3>Free</h3>
+                    <div class="pricing-card__price">
+                        <span class="price" data-monthly="$0" data-yearly="$0">$0</span>
+                        <span class="period">/month</span>
+                    </div>
+                    <p>Perfect for getting started with budgeting basics.</p>
+                    <ul>
+                        <li>Up to 2 linked accounts</li>
+                        <li>Basic budget categories</li>
+                        <li>Monthly spending reports</li>
+                        <li>1 savings goal</li>
+                    </ul>
+                    <a href="#" class="btn btn--outline btn--full">Get started</a>
+                </article>
+                <article class="pricing-card pricing-card--featured reveal">
+                    <div class="pricing-card__badge">Most Popular</div>
+                    <h3>Pro</h3>
+                    <div class="pricing-card__price">
+                        <span class="price" data-monthly="$9" data-yearly="$7">$9</span>
+                        <span class="period">/month</span>
+                    </div>
+                    <p>For serious savers who want the full toolkit.</p>
+                    <ul>
+                        <li>Unlimited linked accounts</li>
+                        <li>Custom categories & rules</li>
+                        <li>Advanced insights & trends</li>
+                        <li>Unlimited savings goals</li>
+                        <li>Bill tracking & reminders</li>
+                        <li>Priority support</li>
+                    </ul>
+                    <a href="#" class="btn btn--primary btn--full">Start free trial</a>
+                </article>
+                <article class="pricing-card reveal">
+                    <h3>Family</h3>
+                    <div class="pricing-card__price">
+                        <span class="price" data-monthly="$15" data-yearly="$12">$15</span>
+                        <span class="period">/month</span>
+                    </div>
+                    <p>Manage household finances together seamlessly.</p>
+                    <ul>
+                        <li>Everything in Pro</li>
+                        <li>Up to 5 family members</li>
+                        <li>Shared budgets & goals</li>
+                        <li>Allowance tracking</li>
+                        <li>Family spending dashboard</li>
+                    </ul>
+                    <a href="#" class="btn btn--outline btn--full">Get started</a>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">Reviews</span>
+                <h2>Loved by thousands</h2>
+                <p>See what our users have to say about taking control of their money.</p>
+            </div>
+            <div class="testimonials__grid">
+                <blockquote class="testimonial reveal">
+                    <div class="testimonial__stars">★★★★★</div>
+                    <p>"ClearBudget completely changed how I think about money. I saved $3,200 in my first six months without feeling deprived."</p>
+                    <footer>
+                        <div class="testimonial__avatar">SM</div>
+                        <div>
+                            <strong>Sarah Mitchell</strong>
+                            <span>Freelance Designer</span>
+                        </div>
+                    </footer>
+                </blockquote>
+                <blockquote class="testimonial reveal">
+                    <div class="testimonial__stars">★★★★★</div>
+                    <p>"Finally, a budgeting app that doesn't feel like homework. The insights are actually useful and the UI is gorgeous."</p>
+                    <footer>
+                        <div class="testimonial__avatar">JR</div>
+                        <div>
+                            <strong>James Rodriguez</strong>
+                            <span>Software Engineer</span>
+                        </div>
+                    </footer>
+                </blockquote>
+                <blockquote class="testimonial reveal">
+                    <div class="testimonial__stars">★★★★★</div>
+                    <p>"My partner and I use the Family plan to manage our household budget. It's eliminated so many money arguments."</p>
+                    <footer>
+                        <div class="testimonial__avatar">EK</div>
+                        <div>
+                            <strong>Emily Kim</strong>
+                            <span>Marketing Manager</span>
+                        </div>
+                    </footer>
+                </blockquote>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta">
+        <div class="container">
+            <div class="cta__box reveal">
+                <h2>Ready to take control?</h2>
+                <p>Join 50,000+ people who've transformed their relationship with money. Start your free account today.</p>
+                <form class="cta__form" id="ctaForm">
+                    <input type="email" placeholder="Enter your email" required aria-label="Email address">
+                    <button type="submit" class="btn btn--primary">Get started free</button>
+                </form>
+                <span class="cta__note">No credit card required · Free forever plan available</span>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container footer__grid">
+            <div class="footer__brand">
+                <a href="#" class="nav__logo">
+                    <span class="nav__logo-icon">$</span>
+                    ClearBudget
+                </a>
+                <p>Making personal finance simple, beautiful, and accessible for everyone.</p>
+            </div>
+            <div class="footer__links">
+                <h4>Product</h4>
+                <a href="#features">Features</a>
+                <a href="#pricing">Pricing</a>
+                <a href="#how-it-works">How It Works</a>
+                <a href="#">Mobile App</a>
+            </div>
+            <div class="footer__links">
+                <h4>Company</h4>
+                <a href="#">About</a>
+                <a href="#">Blog</a>
+                <a href="#">Careers</a>
+                <a href="#">Press</a>
+            </div>
+            <div class="footer__links">
+                <h4>Support</h4>
+                <a href="#">Help Center</a>
+                <a href="#">Contact</a>
+                <a href="#">Privacy</a>
+                <a href="#">Terms</a>
+            </div>
+        </div>
+        <div class="container footer__bottom">
+            <p>&copy; 2026 ClearBudget. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="index.js"></script>
+</body>
+</html>
