@@ -9,19 +9,25 @@
 <body>
     <div class="container">
         <h1>Budget App</h1>
-    <p1>Total Budget: $1000</p1>
-    <p2>Total Expenses: $500</p2>
-    <p3>Total Income: $500</p3>
-    <p4>Total Savings: $500</p4>
-    <p5>Total Debt: $0</p5>
-    <p6>Total Assets: $1000</p6>
-    <p7>Total Liabilities: $0</p7>
-    <p8>Total Net Worth: $1000</p8>
     </div>
 
+        <div class="balance-card">
+            <h2>Your Balance</h2>
+            <p id="balance">$0.00</p>
+        </div>
 
-    
+        <form id="transaction-form">
+            <input type="text" id="description" placeholder="Description (e.g. Groceries)" required>
+            <input type="number" id="amount" placeholder="Amount" step="0.01" required>
+            <select id="type">
+                <option value="income">Income</option>
+                <option value="expense">Expense</option>
+            </select>
+            <button type="submit">Add</button>
+        </form>
 
+        <h3>History</h3>
+        <ul id="transaction-list"></ul>
     </div>
     <script src="script.js"></script>
 </body>
