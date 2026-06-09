@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BudgetPro AI</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <h2>BudgetPro</h2>
+      <p>Smart Money Dashboard</p>
+      <button id="clearBtn">Reset Data</button>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div>
+          <h1>Financial Dashboard</h1>
+          <p>Track income, expenses, savings goals, and spending insights.</p>
+        </div>
+        <button id="themeBtn">Toggle Theme</button>
+      </header>
+
+      <section class="cards">
+        <div class="card green">
+          <h3>Total Income</h3>
+          <p id="income">$0</p>
+        </div>
+        <div class="card red">
+          <h3>Total Expenses</h3>
+          <p id="expense">$0</p>
+        </div>
+        <div class="card blue">
+          <h3>Balance</h3>
+          <p id="balance">$0</p>
+        </div>
+        <div class="card purple">
+          <h3>Health Score</h3>
+          <p id="score">0%</p>
+        </div>
+      </section>
+
+      <section class="grid">
+        <div class="panel">
+          <h2>Add Transaction</h2>
+
+          <input type="text" id="description" placeholder="Description e.g. Salary, Rent" />
+          <input type="number" id="amount" placeholder="Amount" />
+
+          <select id="type">
+            <option value="income">Income</option>
+            <option value="expense">Expense</option>
+          </select>
+
+          <select id="category">
+            <option value="Salary">Salary</option>
+            <option value="Food">Food</option>
+            <option value="Rent">Rent</option>
+            <option value="Transport">Transport</option>
+            <option value="Shopping">Shopping</option>
+            <option value="Bills">Bills</option>
+            <option value="Savings">Savings</option>
+            <option value="Other">Other</option>
+          </select>
+
+          <button id="addBtn">Add Transaction</button>
+        </div>
+
+        <div class="panel">
+          <h2>Savings Goal</h2>
+
+          <input type="text" id="goalName" placeholder="Goal name e.g. Buy a Car" />
+          <input type="number" id="goalTarget" placeholder="Target amount" />
+          <input type="number" id="goalSaved" placeholder="Amount saved" />
+
+          <button id="goalBtn">Create Goal</button>
+
+          <div id="goalDisplay" class="goal-box"></div>
+        </div>
+      </section>
+
+      <section class="grid">
+        <div class="panel">
+          <h2>AI Money Insights</h2>
+          <div id="insights" class="insights"></div>
+        </div>
+
+        <div class="panel">
+          <h2>Spending by Category</h2>
+          <div id="categoryList"></div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="section-header">
+          <h2>Transaction History</h2>
+          <button id="exportBtn">Export CSV</button>
+        </div>
+
+        <input type="text" id="searchInput" placeholder="Search transactions..." />
+
+        <ul id="transactionList"></ul>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
