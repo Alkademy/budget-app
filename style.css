@@ -6,7 +6,7 @@
   }
   
   body {
-    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-family: system-ui, sans-serif;
     background: #f0f4f8;
     padding: 2rem;
   }
