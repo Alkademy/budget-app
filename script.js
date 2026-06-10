@@ -8,10 +8,10 @@ const descriptionInput = document.getElementById('description');
 const amountInput = document.getElementById('amount');
 const typeSelect = document.getElementById('type');
 
-// Data store
+
 let transactions = [];
 
-// Helper: format currency
+
 function formatMoney(amount) {
     return amount.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
 }
@@ -49,7 +49,6 @@ function renderTransactions() {
         const itemDiv = document.createElement('div');
         itemDiv.className = `transaction-item ${transaction.type === 'income' ? 'transaction-income' : 'transaction-expense'}`;
 
-        // Left side: description + type label
         const infoDiv = document.createElement('div');
         infoDiv.className = 'transaction-info';
 
@@ -117,12 +116,10 @@ function addTransaction(description, amount, type) {
     return true;
 }
 
-// Handle form submit - THIS IS WHERE THE FIX IS
+
 function handleFormSubmit(e) {
-    e.preventDefault(); // This prevents page refresh
-    
-    console.log('Form submitted'); // You can check console to see it's working
-    
+    e.preventDefault(); 
+    console.log('Form submitted'); 
     const description = descriptionInput.value;
     const amount = amountInput.value;
     const type = typeSelect.value;
@@ -130,7 +127,6 @@ function handleFormSubmit(e) {
     const success = addTransaction(description, amount, type);
 
     if (success) {
-        // Clear form
         descriptionInput.value = '';
         amountInput.value = '';
         typeSelect.value = 'income';
@@ -141,9 +137,9 @@ function handleFormSubmit(e) {
     }
 }
 
-// Event listener
+
 form.addEventListener('submit', handleFormSubmit);
 
-// Initial render (empty state)
+
 updateSummary();
 renderTransactions();
