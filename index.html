@@ -3,108 +3,118 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BudgetPro AI</title>
+  <title>BudgetPro AI Dashboard</title>
   <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
-  <div class="app">
-    <aside class="sidebar">
-      <h2>BudgetPro</h2>
-      <p>Smart Money Dashboard</p>
-      <button id="clearBtn">Reset Data</button>
-    </aside>
+  <aside class="sidebar">
+    <h1>💰 BudgetPro</h1>
+    <p>Smart Money Dashboard</p>
+    <button id="clearBtn">Reset Data</button>
+  </aside>
 
-    <main class="main">
-      <header class="topbar">
-        <div>
-          <h1>Financial Dashboard</h1>
-          <p>Track income, expenses, savings goals, and spending insights.</p>
+  <main class="main-content">
+    <header class="top-header">
+      <div>
+        <h2>💰 Financial Dashboard</h2>
+        <p>Track income, expenses, savings goals, and spending insights.</p>
+      </div>
+
+      <button id="themeBtn">Toggle Theme</button>
+    </header>
+
+    <section class="summary-grid">
+      <div class="summary-card income-card">
+        <h3>Total Income</h3>
+        <h2 id="income">$0</h2>
+      </div>
+
+      <div class="summary-card expense-card">
+        <h3>Total Expenses</h3>
+        <h2 id="expense">$0</h2>
+      </div>
+
+      <div class="summary-card balance-card">
+        <h3>Balance</h3>
+        <h2 id="balance">$0</h2>
+      </div>
+
+      <div class="summary-card score-card">
+        <h3>Health Score</h3>
+        <h2 id="score">0%</h2>
+      </div>
+    </section>
+
+    <section class="dashboard-grid">
+      <div class="card">
+        <h2>Add Transaction</h2>
+
+        <input id="description" placeholder="Description e.g. Salary, Rent" />
+        <input id="amount" type="number" placeholder="Amount" />
+
+        <select id="type">
+          <option value="income">Income</option>
+          <option value="expense">Expense</option>
+        </select>
+
+        <select id="category">
+          <option>Salary</option>
+          <option>Food</option>
+          <option>Transport</option>
+          <option>Rent</option>
+          <option>Shopping</option>
+          <option>Utilities</option>
+          <option>Health</option>
+          <option>Entertainment</option>
+          <option>Other</option>
+        </select>
+
+        <button id="addBtn" class="primary-btn">Add Transaction</button>
+      </div>
+
+      <div class="card">
+        <h2>Savings Goal</h2>
+
+        <input id="goalName" placeholder="Goal name e.g. Buy a Car" />
+        <input id="goalTarget" type="number" placeholder="Target amount" />
+        <input id="goalSaved" type="number" placeholder="Amount saved" />
+
+        <button id="goalBtn" class="primary-btn">Create Goal</button>
+
+        <div id="goalDisplay">
+          <p>No savings goal created yet.</p>
         </div>
-        <button id="themeBtn">Toggle Theme</button>
-      </header>
+      </div>
 
-      <section class="cards">
-        <div class="card green">
-          <h3>Total Income</h3>
-          <p id="income">$0</p>
+      <div class="card">
+        <h2>AI Money Insights</h2>
+        <div id="insights">
+          <p>Add your first transaction to see smart insights.</p>
         </div>
-        <div class="card red">
-          <h3>Total Expenses</h3>
-          <p id="expense">$0</p>
+      </div>
+
+      <div class="card">
+        <h2>Spending by Category</h2>
+        <div id="categoryList">
+          <p>No expense categories yet.</p>
         </div>
-        <div class="card blue">
-          <h3>Balance</h3>
-          <p id="balance">$0</p>
-        </div>
-        <div class="card purple">
-          <h3>Health Score</h3>
-          <p id="score">0%</p>
-        </div>
-      </section>
+      </div>
+    </section>
 
-      <section class="grid">
-        <div class="panel">
-          <h2>Add Transaction</h2>
+    <section class="card transaction-card">
+      <div class="transaction-header">
+        <h2>Transaction History</h2>
+        <button id="exportBtn">Export CSV</button>
+      </div>
 
-          <input type="text" id="description" placeholder="Description e.g. Salary, Rent" />
-          <input type="number" id="amount" placeholder="Amount" />
+      <input id="searchInput" placeholder="Search transactions..." />
 
-          <select id="type">
-            <option value="income">Income</option>
-            <option value="expense">Expense</option>
-          </select>
+      <ul id="transactionList"></ul>
+    </section>
 
-          <select id="category">
-            <option value="Salary">Salary</option>
-            <option value="Food">Food</option>
-            <option value="Rent">Rent</option>
-            <option value="Transport">Transport</option>
-            <option value="Shopping">Shopping</option>
-            <option value="Bills">Bills</option>
-            <option value="Savings">Savings</option>
-            <option value="Other">Other</option>
-          </select>
-
-          <button id="addBtn">Add Transaction</button>
-        </div>
-
-        <div class="panel">
-          <h2>Savings Goal</h2>
-
-          <input type="text" id="goalName" placeholder="Goal name e.g. Buy a Car" />
-          <input type="number" id="goalTarget" placeholder="Target amount" />
-          <input type="number" id="goalSaved" placeholder="Amount saved" />
-
-          <button id="goalBtn">Create Goal</button>
-
-          <div id="goalDisplay" class="goal-box"></div>
-        </div>
-      </section>
-
-      <section class="grid">
-        <div class="panel">
-          <h2>AI Money Insights</h2>
-          <div id="insights" class="insights"></div>
-        </div>
-
-        <div class="panel">
-          <h2>Spending by Category</h2>
-          <div id="categoryList"></div>
-        </div>
-      </section>
-
-      <section class="panel">
-        <div class="section-header">
-          <h2>Transaction History</h2>
-          <button id="exportBtn">Export CSV</button>
-        </div>
-
-        <input type="text" id="searchInput" placeholder="Search transactions..." />
-
-        <ul id="transactionList"></ul>
-      </section>
-    </main>
-  </div>
+    <button id="logoutBtn" class="logout-btn">Logout</button>
+  </main>
 
   <script src="script.js"></script>
 </body>

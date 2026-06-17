@@ -1,3 +1,6 @@
+if (localStorage.getItem("budgetProLoggedIn") !== "true") {
+  window.location.href = "login.html";
+}
 const description = document.getElementById("description");
 const amount = document.getElementById("amount");
 const type = document.getElementById("type");
@@ -269,3 +272,23 @@ function exportCSV() {
 }
 
 updateUI();
+const logoutBtn =
+document.getElementById("logoutBtn");
+
+if (logoutBtn) {
+
+  logoutBtn.addEventListener(
+    "click",
+    () => {
+
+      localStorage.removeItem(
+        "budgetProLoggedIn"
+      );
+
+      window.location.href =
+        "login.html";
+
+    }
+  );
+
+}
