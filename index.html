@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Budget App</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1> PERSONAL BUDGET APP</h1>
+    </header>
+    <main>
+       <section class="container">
+        <div class="budget-container budget-card-container">
+            <!-- Balance -->
+             <div class="balance-container">
+                <h2>Balance: <span id="balance">$0</span></h2>
+                <div class="income-expense-container">
+                    <span>Income: <span id="income">$0</span></span>
+                    <p>Expense: <span id="expense">$0</span></p>
+                </div>
+            </div>
+
+            <!-- Add Transaction Form -->
+            <div class="add-transaction-container">
+                <h2>Add Transaction</h2>
+                <form id="transaction-form" class="form-container">
+                    <!-- Amount -->
+                    <div class="form-group">
+                        <label for="amount" class="form-label">Amount</label>
+                        <input type="number" id="amount" name="amount" class="form-input" required>
+                    </div>
+                
+                    <!-- Description -->
+                    <div class="form-group">
+                        <label for="description" class="form-label">Description</label>
+                        <textarea id="description" name="description" class="form-textarea" placeholder="Enter a description..." maxlength="500" required></textarea>
+                    </div>
+                
+                    <!-- Type -->
+                    <div class="form-group">
+                        <label for="type" class="form-label">Type</label>
+                        <select id="type" name="type" class="form-select" required>
+                            <option value="income">Income</option>
+                            <option value="expense">Expense</option>
+                        </select>
+                    </div>
+                
+                    <!-- Category -->
+                    <div class="form-group">
+                        <label for="category" class="form-label">Category</label>
+                        <select id="category" name="category" class="form-select" required>
+                            <option value="food">Food</option>
+                            <option value="transport">Transport</option>
+                            <option value="housing">Housing</option>
+                            <option value="utilities">Utilities</option>
+                        </select>
+                    </div>
+                
+                    <!-- Submit Button -->
+                    <button type="submit" form="transaction-form" class="form-button">
+                        Add
+                    </button>
+                </form>
+            </div>
+
+            
+                
+               
+        </div>
+        <div class="monthly-budget-container">
+            <h3 id="month-name">My Progress</h3>
+            <div class="monthly-budget-card">
+                
+        </div>
+       </section>
+    </main>
+    <footer>
+        <p>Copyright 2026 Budget App</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

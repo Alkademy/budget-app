@@ -1,0 +1,293 @@
+/* Page */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    font-family: "Roboto", sans-serif;
+
+    background:
+        radial-gradient(
+            circle at top right,
+            rgba(185, 128, 255, 0.15),
+            transparent 30%
+        ),
+        linear-gradient(
+            135deg,
+            #120b1f,
+            #24113d,
+            #3b1f67,
+            #4f2b8a
+        );
+
+    color: white;
+
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header */
+
+header {
+    text-align: center;
+    padding: 2rem;
+}
+
+header h1 {
+    letter-spacing: 3px;
+    color: #f0e8ff;
+    text-shadow: 0 0 15px rgba(185, 128, 255, 0.4);
+}
+
+/* Main */
+
+main {
+    flex: 1;
+    padding: 2rem;
+}
+
+/* dashboard  */
+
+.container {
+    display: grid;
+    grid-template-columns: 400px 1fr;
+    gap: 2rem;
+    align-items: start;
+}
+
+
+.budget-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+
+.monthly-budget-container {
+    min-height: 700px;
+
+    padding: 2rem;
+
+    border-radius: 24px;
+
+    background: rgba(255, 255, 255, 0.08);
+
+    backdrop-filter: blur(12px);
+
+    border: 1px solid rgba(255, 255, 255, 0.15);
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.3),
+        0 0 20px rgba(180, 140, 255, 0.15);
+
+    display: flex;
+    flex-direction: column;
+}
+
+/* Month title */
+
+#month-name {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    color: #e6ddff;
+}
+
+/* Graph area */
+
+.monthly-budget-card {
+    flex: 1;
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.08),
+            rgba(255,255,255,0.03)
+        );
+
+    border: 2px dashed rgba(185, 128, 255, 0.3);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: rgba(255,255,255,0.5);
+
+    font-size: 1.2rem;
+}
+
+/* placeholder */
+
+.monthly-budget-card::before {
+    content: "Monthly Spending Graph";
+}
+
+/* Footer */
+
+footer {
+    text-align: center;
+    padding: 1.5rem;
+    color: rgba(255,255,255,0.7);
+}
+
+.balance-container {
+    max-width: 500px;
+    margin: 2rem auto;
+    padding: 2rem;
+    border-radius: 20px;
+    background: linear-gradient(
+        145deg,
+        rgba(90, 60, 150, 0.95),
+        rgba(55, 35, 95, 0.95)
+    );
+    border: 1px solid rgba(192, 192, 192, 0.3);
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.3),
+        0 0 20px rgba(180, 140, 255, 0.2);
+    text-align: center;
+}
+
+.balance-title {
+    color: #e6ddff;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.balance-amount {
+    color: #ffffff;
+    text-shadow: 0 0 12px rgba(194, 156, 255, 0.7);
+}
+
+.income-expense-container {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.income-card,
+.expense-card {
+    flex: 1;
+    padding: 1rem;
+    border-radius: 14px;
+    font-weight: 600;
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.income-card {
+    background: rgba(46, 204, 113, 0.15);
+    color: #8dffba;
+    box-shadow: 0 0 15px rgba(46, 204, 113, 0.15);
+}
+
+.expense-card {
+    background: rgba(231, 76, 60, 0.15);
+    color: #ffaaa0;
+    box-shadow: 0 0 15px rgba(231, 76, 60, 0.15);
+}
+
+#income,
+#expense {
+    font-weight: 700;
+    display: block;
+    margin-top: 0.3rem;
+    font-size: 1.2rem;
+}
+
+.income-expense-container{
+    display: flex;
+    flex-direction: column;
+    
+}
+
+
+.form-container {
+    max-width: 500px;
+    margin: 2rem auto;
+    padding: 2rem;
+    border-radius: 20px;
+    background: linear-gradient(
+        145deg,
+        rgba(90, 60, 150, 0.95),
+        rgba(55, 35, 95, 0.95)
+    );
+    border: 1px solid rgba(192, 192, 192, 0.3);
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.3),
+        0 0 20px rgba(180, 140, 255, 0.2);
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.25rem;
+}
+
+.form-label {
+    color: #e6ddff;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.form-input,
+.form-select,
+.form-textarea {
+    padding: 0.9rem;
+    border-radius: 12px;
+    border: 2px solid rgba(192, 192, 192, 0.25);
+    background: rgba(255, 255, 255, 0.08);
+    color: white;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.form-input::placeholder,
+.form-textarea::placeholder {
+    color: #cfc4ff;
+}
+
+.form-textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+    outline: none;
+    border-color: #c29cff;
+    box-shadow: 0 0 15px rgba(194, 156, 255, 0.4);
+}
+
+.form-select option {
+    background: #3a2566;
+    color: white;
+}
+
+.form-button {
+    width: 100%;
+    padding: 1rem;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(
+        135deg,
+        #d9d9d9,
+        #b68cff
+    );
+    color: #2b184d;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.form-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(182, 140, 255, 0.4);
+}
