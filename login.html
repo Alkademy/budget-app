@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login — Budget Tracker</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="login-page">
+
+    <div class="login-wrapper">
+        <a href="landing.html" class="login-back">← Back to home</a>
+
+        <div class="login-card">
+            <div class="login-header">
+                <span class="login-logo">₿</span>
+                <h1>Welcome back</h1>
+                <p>Sign in to access your budget tracker</p>
+            </div>
+
+            <form id="login-form" class="login-form" novalidate>
+                <div class="login-form-group">
+                    <label for="username">Username</label>
+                    <input
+                        type="text"
+                        id="username"
+                        name="username"
+                        placeholder="Enter your username"
+                        autocomplete="username"
+                        required
+                    >
+                </div>
+
+                <div class="login-form-group">
+                    <label for="password">Password</label>
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        placeholder="Enter your password"
+                        autocomplete="current-password"
+                        required
+                    >
+                </div>
+
+                <button type="submit" class="login-btn">Sign In</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="login-alert" id="login-alert" hidden>
+        <div class="login-alert__backdrop"></div>
+        <div class="login-alert__box" role="alertdialog" aria-modal="true" aria-labelledby="login-alert-title">
+            <p class="login-alert__icon" id="login-alert-icon" aria-hidden="true"></p>
+            <h2 class="login-alert__title" id="login-alert-title"></h2>
+            <p class="login-alert__message" id="login-alert-message"></p>
+            <button type="button" class="login-alert__btn" id="login-alert-btn">OK</button>
+        </div>
+    </div>
+
+    <script>
+        const VALID_USERNAME = 'EniIbk';
+        const VALID_PASSWORD = 'hell';
+
+        const form = document.getElementById('login-form');
+        const usernameInput = document.getElementById('username');
+        const passwordInput = document.getElementById('password');
+        const alertEl = document.getElementById('login-alert');
+        const alertIcon = document.getElementById('login-alert-icon');
+        const alertTitle = document.getElementById('login-alert-title');
+        const alertMessage = document.getElementById('login-alert-message');
+        const alertBtn = document.getElementById('login-alert-btn');
+
+        let alertCallback = null;
+
+        function showAlert({ type, title, message, onClose }) {
+            alertEl.classList.remove('login-alert--success', 'login-alert--error');
+            alertEl.classList.add(type === 'success' ? 'login-alert--success' : 'login-alert--error');
+            alertIcon.textContent = type === 'success' ? '✓' : '!';
+            alertTitle.textContent = title;
+            alertMessage.textContent = message;
+            alertCallback = onClose || null;
+            alertEl.hidden = false;
+            alertBtn.focus();
+        }
+
+        function hideAlert() {
+            alertEl.hidden = true;
+            if (alertCallback) {
+                const callback = alertCallback;
+                alertCallback = null;
+                callback();
+            }
+        }
+
+        alertBtn.addEventListener('click', hideAlert);
+        alertEl.querySelector('.login-alert__backdrop').addEventListener('click', hideAlert);
+
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const username = usernameInput.value.trim();
+            const password = passwordInput.value;
+
+            if (username === VALID_USERNAME && password === VALID_PASSWORD) {
+                window.location.href = 'app.html';
+            } else {
+                showAlert({
+                    type: 'error',
+                    title: 'Invalid credentials',
+                    message: 'Please check your username and password and try again.',
+                    onClose: function () {
+                        passwordInput.value = '';
+                        passwordInput.focus();
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

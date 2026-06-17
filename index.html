@@ -2,63 +2,211 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>Budget Tracker</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Budget Tracker — Take Control of Your Money</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
-<body>
-    <div class="container">
-        <header>
-            <h1>Budget Tracker</h1>
-        </header>
+<body class="landing-page">
 
-        <section class="summary">
-            <div class="card balance">
+    <!-- Navbar -->
+    <nav class="landing-nav">
+        <div class="landing-nav__inner">
+            <a href="landing.html" class="landing-nav__logo">
+                <span class="landing-nav__logo-icon">₿</span>
+                Budget Tracker
+            </a>
+            <ul class="landing-nav__links">
+                <li><a href="#features">Features</a></li>
+                <li><a href="#how-it-works">How It Works</a></li>
+                <li><a href="#cta">Get Started</a></li>
+            </ul>
+            <a href="login.html" class="landing-nav__cta">Login</a>
+            <button class="landing-nav__toggle" aria-label="Toggle menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <header class="landing-hero">
+        <div class="landing-hero__content">
+            <p class="landing-hero__badge">Simple · Free · No sign-up required</p>
+            <h1 class="landing-hero__title">
+                Track your money.<br>
+                <span class="landing-hero__highlight">Build your future.</span>
+            </h1>
+            <p class="landing-hero__subtitle">
+                A clean, intuitive budget tracker that helps you see where every dollar goes —
+                so you can save smarter and spend with confidence.
+            </p>
+            <div class="landing-hero__actions">
+                <a href="index.html" class="landing-btn landing-btn--primary">Start Tracking Free</a>
+                <a href="#features" class="landing-btn landing-btn--secondary">See Features</a>
+            </div>
+            <div class="landing-hero__stats">
+                <div class="landing-hero__stat">
+                    <strong>$0</strong>
+                    <span>Cost forever</span>
+                </div>
+                <div class="landing-hero__stat">
+                    <strong>Real-time</strong>
+                    <span>Balance updates</span>
+                </div>
+                <div class="landing-hero__stat">
+                    <strong>100%</strong>
+                    <span>Private & local</span>
+                </div>
+            </div>
+        </div>
+        <div class="landing-hero__visual">
+            <div class="landing-hero__card landing-hero__card--balance">
                 <p>Current Balance</p>
-                <h2 id="balance">$0.00</h2>
+                <h2>$2,450.00</h2>
             </div>
-            <div class="row-cards">
-                <div class="card income">
+            <div class="landing-hero__card-row">
+                <div class="landing-hero__card landing-hero__card--income">
                     <p>Income</p>
-                    <h3 id="total-income">$0.00</h3>
+                    <h3>$3,200.00</h3>
                 </div>
-                <div class="card expense">
+                <div class="landing-hero__card landing-hero__card--expense">
                     <p>Expenses</p>
-                    <h3 id="total-expense">$0.00</h3>
+                    <h3>$750.00</h3>
                 </div>
             </div>
-        </section>
-
-        <section class="add-transaction">
-            <h3>Add Transaction</h3>
-            <form id="transaction-form">
-                <div class="form-group">
-                    <label for="description">Description</label>
-                    <input type="text" id="description" placeholder="e.g., Coffee, Freelance" required>
+            <div class="landing-hero__card landing-hero__card--transaction">
+                <div class="landing-hero__tx">
+                    <span class="landing-hero__tx-desc">Freelance Payment</span>
+                    <span class="landing-hero__tx-amount income">+$800.00</span>
                 </div>
-                <div class="form-group">
-                    <label for="amount">Amount ($)</label>
-                    <input type="number" id="amount" placeholder="0.00" step="0.01" required>
+                <div class="landing-hero__tx">
+                    <span class="landing-hero__tx-desc">Groceries</span>
+                    <span class="landing-hero__tx-amount expense">−$64.50</span>
                 </div>
-                <div class="form-group">
-                    <label for="type">Type</label>
-                    <select id="type">
-                        <option value="income">Income</option>
-                        <option value="expense">Expense</option>
-                    </select>
+                <div class="landing-hero__tx">
+                    <span class="landing-hero__tx-desc">Coffee</span>
+                    <span class="landing-hero__tx-amount expense">−$5.75</span>
                 </div>
-                <button type="submit" class="btn-add">Add Transaction</button>
-            </form>
-        </section>
-
-        <section class="transactions">
-            <h3>Transaction History</h3>
-            <div id="transactions-list">
-                <p class="empty-message">No transactions yet. Add one above.</p>
             </div>
-        </section>
-    </div>
+        </div>
+    </header>
 
-    <script src="script.js"></script>
+    <!-- Features -->
+    <section class="landing-section" id="features">
+        <div class="landing-section__header">
+            <h2>Everything you need to stay on budget</h2>
+            <p>Powerful tools wrapped in a simple interface — no clutter, no complexity.</p>
+        </div>
+        <div class="landing-features">
+            <article class="landing-feature">
+                <div class="landing-feature__icon">📊</div>
+                <h3>Live Summary</h3>
+                <p>See your balance, total income, and expenses update instantly as you add transactions.</p>
+            </article>
+            <article class="landing-feature">
+                <div class="landing-feature__icon">➕</div>
+                <h3>Quick Entry</h3>
+                <p>Add income or expenses in seconds with a streamlined form — description, amount, done.</p>
+            </article>
+            <article class="landing-feature">
+                <div class="landing-feature__icon">📋</div>
+                <h3>Transaction History</h3>
+                <p>Review every transaction at a glance. Color-coded entries make income and expenses easy to spot.</p>
+            </article>
+            <article class="landing-feature">
+                <div class="landing-feature__icon">🔒</div>
+                <h3>Your Data, Your Device</h3>
+                <p>No accounts, no cloud sync. Your budget stays on your browser — private and under your control.</p>
+            </article>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="landing-section landing-section--alt" id="how-it-works">
+        <div class="landing-section__header">
+            <h2>Up and running in three steps</h2>
+            <p>Start managing your finances in under a minute.</p>
+        </div>
+        <ol class="landing-steps">
+            <li class="landing-step">
+                <span class="landing-step__number">1</span>
+                <div>
+                    <h3>Open the app</h3>
+                    <p>Click "Start Tracking Free" — no downloads or sign-ups needed.</p>
+                </div>
+            </li>
+            <li class="landing-step">
+                <span class="landing-step__number">2</span>
+                <div>
+                    <h3>Add your transactions</h3>
+                    <p>Log your income and expenses as they happen throughout the day.</p>
+                </div>
+            </li>
+            <li class="landing-step">
+                <span class="landing-step__number">3</span>
+                <div>
+                    <h3>Watch your balance grow</h3>
+                    <p>Your dashboard updates in real time so you always know where you stand.</p>
+                </div>
+            </li>
+        </ol>
+    </section>
+
+    <!-- CTA -->
+    <section class="landing-cta" id="cta">
+        <h2>Ready to take control of your finances?</h2>
+        <p>Join thousands of people who track smarter with Budget Tracker.</p>
+        <a href="index.html" class="landing-btn landing-btn--primary landing-btn--large">Get Started Now</a>
+    </section>
+
+    <!-- Footer -->
+    <footer class="landing-footer">
+        <div class="landing-footer__inner">
+            <div class="landing-footer__brand">
+                <a href="landing.html" class="landing-nav__logo">
+                    <span class="landing-nav__logo-icon">₿</span>
+                    Budget Tracker
+                </a>
+                <p>Simple personal finance tracking for everyone.</p>
+            </div>
+            <div class="landing-footer__links">
+                <div>
+                    <h4>Product</h4>
+                    <ul>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#how-it-works">How It Works</a></li>
+                        <li><a href="index.html">Open App</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#">Documentation</a></li>
+                        <li><a href="#">Support</a></li>
+                        <li><a href="#">Privacy</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="landing-footer__bottom">
+            <p>&copy; 2026 Budget Tracker. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        const toggle = document.querySelector('.landing-nav__toggle');
+        const nav = document.querySelector('.landing-nav');
+        toggle.addEventListener('click', () => {
+            const open = nav.classList.toggle('landing-nav--open');
+            toggle.setAttribute('aria-expanded', open);
+        });
+        document.querySelectorAll('.landing-nav__links a').forEach(link => {
+            link.addEventListener('click', () => nav.classList.remove('landing-nav--open'));
+        });
+    </script>
 </body>
 </html>
