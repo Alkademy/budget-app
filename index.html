@@ -54,10 +54,11 @@
                     <div class="form-group">
                         <label for="category" class="form-label">Category</label>
                         <select id="category" name="category" class="form-select" required>
-                            <option value="food">Food</option>
-                            <option value="transport">Transport</option>
-                            <option value="housing">Housing</option>
-                            <option value="utilities">Utilities</option>
+                            <option value="Salary">Salary</option>
+                            <option value="Food">Food</option>
+                            <option value="Transport">Transport</option>
+                            <option value="Rent">Rent</option>
+                            <option value="Entertainment">Entertainment</option>>
                         </select>
                     </div>
                 
@@ -66,6 +67,13 @@
                         Add
                     </button>
                 </form>
+
+                <div class="transaction-history-container">
+                    <h2>Transaction History</h2>
+                
+                    <ul id="transaction-list"></ul>
+                </div>
+
             </div>
 
             
@@ -75,6 +83,8 @@
         <div class="monthly-budget-container">
             <h3 id="month-name">My Progress</h3>
             <div class="monthly-budget-card">
+                <canvas id="budgetChart"></canvas>
+            </div>
                 
         </div>
        </section>
@@ -83,6 +93,7 @@
         <p>Copyright 2026 Budget App</p>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
