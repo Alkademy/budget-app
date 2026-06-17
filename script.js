@@ -1,5 +1,5 @@
 if (localStorage.getItem("budgetProLoggedIn") !== "true") {
-  window.location.href = "login.html";
+  window.location.href = "landingpage.html";
 }
 const description = document.getElementById("description");
 const amount = document.getElementById("amount");
