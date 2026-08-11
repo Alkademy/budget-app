@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,6 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
+
 <body class="landing-page">
 
     <!-- Navbar -->
@@ -23,7 +25,11 @@
                 <li><a href="#how-it-works">How It Works</a></li>
                 <li><a href="#cta">Get Started</a></li>
             </ul>
-            <a href="login.html" class="landing-nav__cta">Login</a>
+            <div class="landing-nav__auth">
+                <a href="login.html" class="landing-nav__cta">Login</a>
+                <a href="signup.html" class="landing-nav__cta">Sign Up</a>
+            </div>
+
             <button class="landing-nav__toggle" aria-label="Toggle menu" aria-expanded="false">
                 <span></span>
                 <span></span>
@@ -209,4 +215,5 @@
         });
     </script>
 </body>
+
 </html>

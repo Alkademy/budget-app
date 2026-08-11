@@ -579,6 +579,12 @@ input:focus, select:focus {
     color: #ef4444;
 }
 
+.landing-nav__auth {
+    display: flex;
+    align-items: center;
+    gap: 12px; /* Reduce or increase this number to adjust spacing */
+}
+
 /* Sections */
 .landing-section {
     max-width: 1120px;
@@ -1150,4 +1156,28 @@ input:focus, select:focus {
     .transaction-amount {
         margin-right: 8px;
     }
+}
+
+/* ============================================
+   Signup Footer Links
+   ============================================ */
+
+.signup-footer {
+    margin-top: 1.5rem;
+    text-align: center;
+}
+
+.signup-footer__text {
+    font-size: 0.875rem;
+    color: #6b7280;
+}
+
+.signup-footer__link {
+    color: #2563eb;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.signup-footer__link:hover {
+    text-decoration: underline;
 }

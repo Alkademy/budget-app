@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up — Budget Tracker</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="login-page">
+
+    <div class="login-wrapper">
+        <a href="index.html" class="login-back">← Back to home</a>
+
+        <div class="login-card">
+            <div class="login-header">
+                <span class="login-logo">₿</span>
+                <h1>Create an account</h1>
+                <p>Start tracking and managing your budget today</p>
+            </div>
+
+            <form id="signup-form" class="login-form" novalidate>
+                <div class="login-form-group">
+                    <label for="username">Username</label>
+                    <input
+                        type="text"
+                        id="username"
+                        name="username"
+                        placeholder="Choose a username"
+                        autocomplete="username"
+                        required
+                    >
+                </div>
+
+                <div class="login-form-group">
+                    <label for="password">Password</label>
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        placeholder="Create a password"
+                        autocomplete="new-password"
+                        required
+                    >
+                </div>
+
+                <div class="login-form-group">
+                    <label for="confirm-password">Confirm Password</label>
+                    <input
+                        type="password"
+                        id="confirm-password"
+                        name="confirm-password"
+                        placeholder="Confirm your password"
+                        autocomplete="new-password"
+                        required
+                    >
+                </div>
+
+                <button type="submit" class="login-btn">Create Account</button>
+            </form>
+
+            <div class="signup-footer">
+                <p class="signup-footer__text">
+                    Already have an account? <a href="login.html" class="signup-footer__link">Sign in</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="login-alert" id="signup-alert" hidden>
+        <div class="login-alert__backdrop"></div>
+        <div class="login-alert__box" role="alertdialog" aria-modal="true" aria-labelledby="signup-alert-title">
+            <p class="login-alert__icon" id="signup-alert-icon" aria-hidden="true"></p>
+            <h2 class="login-alert__title" id="signup-alert-title"></h2>
+            <p class="login-alert__message" id="signup-alert-message"></p>
+            <button type="button" class="login-alert__btn" id="signup-alert-btn">OK</button>
+        </div>
+    </div>
+
+    <script>
+        const form = document.getElementById('signup-form');
+        const usernameInput = document.getElementById('username');
+        const passwordInput = document.getElementById('password');
+        const confirmPasswordInput = document.getElementById('confirm-password');
+
+        const alertEl = document.getElementById('signup-alert');
+        const alertIcon = document.getElementById('signup-alert-icon');
+        const alertTitle = document.getElementById('signup-alert-title');
+        const alertMessage = document.getElementById('signup-alert-message');
+        const alertBtn = document.getElementById('signup-alert-btn');
+
+        let alertCallback = null;
+
+        function showAlert({ type, title, message, onClose }) {
+            alertEl.classList.remove('login-alert--success', 'login-alert--error');
+            alertEl.classList.add(type === 'success' ? 'login-alert--success' : 'login-alert--error');
+            alertIcon.textContent = type === 'success' ? '✓' : '!';
+            alertTitle.textContent = title;
+            alertMessage.textContent = message;
+            alertCallback = onClose || null;
+            alertEl.hidden = false;
+            alertBtn.focus();
+        }
+
+        function hideAlert() {
+            alertEl.hidden = true;
+            if (alertCallback) {
+                const callback = alertCallback;
+                alertCallback = null;
+                callback();
+            }
+        }
+
+        alertBtn.addEventListener('click', hideAlert);
+        alertEl.querySelector('.login-alert__backdrop').addEventListener('click', hideAlert);
+
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const username = usernameInput.value.trim();
+            const password = passwordInput.value;
+            const confirmPassword = confirmPasswordInput.value;
+
+            if (!username) {
+                showAlert({
+                    type: 'error',
+                    title: 'Missing Username',
+                    message: 'Please enter a username to create your account.',
+                    onClose: () => usernameInput.focus()
+                });
+                return;
+            }
+
+            if (!password) {
+                showAlert({
+                    type: 'error',
+                    title: 'Missing Password',
+                    message: 'Please enter a password.',
+                    onClose: () => passwordInput.focus()
+                });
+                return;
+            }
+
+            if (password !== confirmPassword) {
+                showAlert({
+                    type: 'error',
+                    title: 'Passwords do not match',
+                    message: 'Please make sure both password fields match.',
+                    onClose: function () {
+                        confirmPasswordInput.value = '';
+                        confirmPasswordInput.focus();
+                    }
+                });
+                return;
+            }
+
+            // Registration logic mock
+            showAlert({
+                type: 'success',
+                title: 'Account Created!',
+                message: 'Your account has been successfully created. Redirecting to login...',
+                onClose: function () {
+                    window.location.href = 'login.html';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

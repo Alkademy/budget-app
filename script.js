@@ -118,8 +118,8 @@ function addTransaction(description, amount, type) {
 
 
 function handleFormSubmit(e) {
-    e.preventDefault(); 
-    console.log('Form submitted'); 
+    e.preventDefault();
+    console.log('Form submitted');
     const description = descriptionInput.value;
     const amount = amountInput.value;
     const type = typeSelect.value;
@@ -143,3 +143,91 @@ form.addEventListener('submit', handleFormSubmit);
 
 updateSummary();
 renderTransactions();
+
+
+const form = document.getElementById('signup-form');
+const usernameInput = document.getElementById('username');
+const passwordInput = document.getElementById('password');
+const confirmPasswordInput = document.getElementById('confirm-password');
+
+const alertEl = document.getElementById('signup-alert');
+const alertIcon = document.getElementById('signup-alert-icon');
+const alertTitle = document.getElementById('signup-alert-title');
+const alertMessage = document.getElementById('signup-alert-message');
+const alertBtn = document.getElementById('signup-alert-btn');
+
+let alertCallback = null;
+
+function showAlert({ type, title, message, onClose }) {
+    alertEl.classList.remove('login-alert--success', 'login-alert--error');
+    alertEl.classList.add(type === 'success' ? 'login-alert--success' : 'login-alert--error');
+    alertIcon.textContent = type === 'success' ? '✓' : '!';
+    alertTitle.textContent = title;
+    alertMessage.textContent = message;
+    alertCallback = onClose || null;
+    alertEl.hidden = false;
+    alertBtn.focus();
+}
+
+function hideAlert() {
+    alertEl.hidden = true;
+    if (alertCallback) {
+        const callback = alertCallback;
+        alertCallback = null;
+        callback();
+    }
+}
+
+alertBtn.addEventListener('click', hideAlert);
+alertEl.querySelector('.login-alert__backdrop').addEventListener('click', hideAlert);
+
+form.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    const username = usernameInput.value.trim();
+    const password = passwordInput.value;
+    const confirmPassword = confirmPasswordInput.value;
+
+    if (!username) {
+        showAlert({
+            type: 'error',
+            title: 'Missing Username',
+            message: 'Please enter a username to create your account.',
+            onClose: () => usernameInput.focus()
+        });
+        return;
+    }
+
+    if (!password) {
+        showAlert({
+            type: 'error',
+            title: 'Missing Password',
+            message: 'Please enter a password.',
+            onClose: () => passwordInput.focus()
+        });
+        return;
+    }
+
+    if (password !== confirmPassword) {
+        showAlert({
+            type: 'error',
+            title: 'Passwords do not match',
+            message: 'Please make sure both password fields match.',
+            onClose: function () {
+                confirmPasswordInput.value = '';
+                confirmPasswordInput.focus();
+            }
+        });
+        return;
+    }
+
+    // Registration logic mock
+    showAlert({
+        type: 'success',
+        title: 'Account Created!',
+        message: 'Your account has been successfully created. Redirecting to login...',
+        onClose: function () {
+            window.location.href = 'login.html';
+        }
+    });
+});

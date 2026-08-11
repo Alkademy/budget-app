@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,6 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
+
 <body class="login-page">
 
     <div class="login-wrapper">
@@ -24,30 +26,24 @@
             <form id="login-form" class="login-form" novalidate>
                 <div class="login-form-group">
                     <label for="username">Username</label>
-                    <input
-                        type="text"
-                        id="username"
-                        name="username"
-                        placeholder="Enter your username"
-                        autocomplete="username"
-                        required
-                    >
+                    <input type="text" id="username" name="username" placeholder="Enter your username"
+                        autocomplete="username" required>
                 </div>
 
                 <div class="login-form-group">
                     <label for="password">Password</label>
-                    <input
-                        type="password"
-                        id="password"
-                        name="password"
-                        placeholder="Enter your password"
-                        autocomplete="current-password"
-                        required
-                    >
+                    <input type="password" id="password" name="password" placeholder="Enter your password"
+                        autocomplete="current-password" required>
                 </div>
 
                 <button type="submit" class="login-btn">Sign In</button>
             </form>
+
+            <div class="signup-footer">
+                <p class="signup-footer__text">
+                    Don't have an account? <a href="signup.html" class="signup-footer__link">Sign up</a>
+                </p>
+            </div>
         </div>
     </div>
 
@@ -121,4 +117,5 @@
         });
     </script>
 </body>
+
 </html>
