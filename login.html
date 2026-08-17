@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign In — FlowBudget</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="login-page">
+    <div class="login-wrap">
+      <!-- Brand area (sits over terracotta top) -->
+      <div class="login-brand-area">
+        <div class="login-brand-icon">$</div>
+        <div class="login-brand-name">FlowBudget</div>
+        <div class="login-brand-tagline">
+          Your money, finally under control.
+        </div>
+      </div>
+
+      <!-- Form card (sits at the boundary, over white) -->
+      <div class="login-card">
+        <h1 class="login-card__heading">Sign in</h1>
+        <p class="login-card__sub">
+          Enter your credentials to access your dashboard.
+        </p>
+
+        <div class="error-banner" id="errorBanner">
+          Incorrect username or password.
+        </div>
+
+        <form id="loginForm" class="login-form" novalidate>
+          <div>
+            <label for="username">Username</label>
+            <input
+              type="text"
+              id="username"
+              name="username"
+              autocomplete="username"
+              required
+              placeholder="admin"
+            />
+          </div>
+
+          <div>
+            <label for="password">Password</label>
+            <div class="pw-wrap">
+              <input
+                type="password"
+                id="password"
+                name="password"
+                autocomplete="current-password"
+                required
+                placeholder="••••••••"
+              />
+              <button
+                type="button"
+                id="togglePw"
+                class="pw-toggle"
+                aria-label="Toggle password visibility"
+              >
+                <svg
+                  id="iconEye"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                  />
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
+                  />
+                </svg>
+                <svg
+                  id="iconEyeOff"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  style="display: none"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.88 9.88l-3.29-3.29m7.532 7.532l3.29 3.29M3 3l3.59 3.59m0 0A9.953 9.953 0 0112 5c4.478 0 8.268 2.943 9.543 7a10.025 10.025 0 01-4.132 5.411m0 0L21 21"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <button
+            type="submit"
+            class="btn btn--primary btn--full"
+            style="margin-top: 0.25rem"
+          >
+            Sign In
+          </button>
+        </form>
+
+        <p
+          style="
+            margin-top: 1.25rem;
+            font-size: 0.775rem;
+            color: var(--text-subtle);
+            text-align: center;
+            border-top: 1px solid var(--border);
+            padding-top: 1rem;
+          "
+        >
+          Demo: <strong style="color: var(--text-muted)">admin</strong> /
+          <strong style="color: var(--text-muted)">admin123</strong>
+        </p>
+      </div>
+    </div>
+
+    <script>
+      const VALID_USER = "admin";
+      const VALID_PASS = "admin123";
+
+      const form = document.getElementById("loginForm");
+      const usernameInput = document.getElementById("username");
+      const passwordInput = document.getElementById("password");
+      const errorBanner = document.getElementById("errorBanner");
+      const togglePw = document.getElementById("togglePw");
+      const iconEye = document.getElementById("iconEye");
+      const iconEyeOff = document.getElementById("iconEyeOff");
+
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        if (
+          usernameInput.value === VALID_USER &&
+          passwordInput.value === VALID_PASS
+        ) {
+          sessionStorage.setItem("bt_auth", "true");
+          window.location.href = "app.html";
+        } else {
+          errorBanner.classList.add("visible");
+          passwordInput.value = "";
+          passwordInput.focus();
+        }
+      });
+
+      togglePw.addEventListener("click", function () {
+        if (passwordInput.type === "password") {
+          passwordInput.type = "text";
+          iconEye.style.display = "none";
+          iconEyeOff.style.display = "block";
+        } else {
+          passwordInput.type = "password";
+          iconEye.style.display = "block";
+          iconEyeOff.style.display = "none";
+        }
+      });
+
+      usernameInput.addEventListener("input", function () {
+        errorBanner.classList.remove("visible");
+      });
+      passwordInput.addEventListener("input", function () {
+        errorBanner.classList.remove("visible");
+      });
+    </script>
+  </body>
+</html>

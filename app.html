@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard — FlowBudget</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="app-layout">
+      <!-- ===== Sidebar ===== -->
+      <aside class="app-sidebar" id="sidebar">
+        <a href="#" class="sidebar__logo">
+          <div class="sidebar__logo-icon">$</div>
+          <span class="sidebar__logo-text">FlowBudget</span>
+        </a>
+
+        <!-- Month + Stats -->
+        <div class="sidebar__section" id="sidebarStats">
+          <div class="sidebar__month" id="currentMonth"></div>
+
+          <div class="sidebar-stat">
+            <div class="sidebar-stat__label">Budget</div>
+            <div class="sidebar-stat__value" id="sb-budget">$0.00</div>
+          </div>
+
+          <div class="sidebar-stat">
+            <div class="sidebar-stat__label">Spent</div>
+            <div class="sidebar-stat__value" id="sb-spent">$0.00</div>
+          </div>
+
+          <div class="sidebar-stat">
+            <div class="sidebar-stat__label">Remaining</div>
+            <div class="sidebar-stat__value" id="sb-remaining">$0.00</div>
+          </div>
+
+          <div style="margin-top: 0.85rem">
+            <div class="sidebar-progress-label">
+              <span>Budget used</span>
+              <span id="sb-pct">0%</span>
+            </div>
+            <div class="sidebar-progress-track">
+              <div
+                class="sidebar-progress-fill"
+                id="sb-bar"
+                style="width: 0%"
+              ></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Categories -->
+        <div class="sidebar__section">
+          <div class="sidebar__label">By Category</div>
+          <div id="sidebarCategories">
+            <p style="font-size: 0.75rem; color: #57534e; padding: 0.25rem 0">
+              No expenses yet.
+            </p>
+          </div>
+        </div>
+
+        <!-- Budget Setup -->
+        <div class="sidebar__footer">
+          <div class="sidebar__label">Set Budget</div>
+          <form id="budgetForm" class="sidebar-budget-form">
+            <div class="input-prefix">
+              <span>$</span>
+              <input
+                type="number"
+                id="budgetAmount"
+                min="0"
+                step="0.01"
+                placeholder="2000.00"
+                aria-label="Monthly budget"
+              />
+            </div>
+            <button type="submit" class="btn btn--primary btn--full">
+              Update
+            </button>
+          </form>
+        </div>
+      </aside>
+
+      <!-- ===== Main ===== -->
+      <div class="app-main">
+        <div class="app-topbar">
+          <span class="app-topbar__title">Dashboard</span>
+          <button id="logoutBtn" class="btn btn--logout">Log out</button>
+        </div>
+
+        <div class="app-content">
+          <!-- Add Expense -->
+          <div class="card">
+            <div class="card__header">
+              <span class="card__title">Add Expense</span>
+            </div>
+            <div class="card__body">
+              <form id="expenseForm" class="expense-form">
+                <div>
+                  <label for="expDesc">Description</label>
+                  <input
+                    type="text"
+                    id="expDesc"
+                    placeholder="e.g. Grocery run"
+                    required
+                  />
+                </div>
+                <div>
+                  <label for="expAmount">Amount</label>
+                  <div class="input-prefix">
+                    <span>$</span>
+                    <input
+                      type="number"
+                      id="expAmount"
+                      min="0.01"
+                      step="0.01"
+                      placeholder="0.00"
+                      required
+                    />
+                  </div>
+                </div>
+                <div>
+                  <label for="expCategory">Category</label>
+                  <select id="expCategory" required>
+                    <option value="Food">Food</option>
+                    <option value="Transport">Transport</option>
+                    <option value="Housing">Housing</option>
+                    <option value="Entertainment">Entertainment</option>
+                    <option value="Shopping">Shopping</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </div>
+                <div style="display: flex; align-items: flex-end">
+                  <button type="submit" class="btn btn--primary btn--full">
+                    Add
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+
+          <!-- Expense List -->
+          <div class="card">
+            <div class="card__header">
+              <span class="card__title">Recent Expenses</span>
+              <span class="expense-count" id="expenseCount">0 items</span>
+            </div>
+            <div class="card__body" style="padding-top: 0; padding-bottom: 0">
+              <ul class="expense-list" id="expenseList"></ul>
+              <p class="empty-text" id="emptyState">
+                No expenses yet. Add your first one above.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="index.js"></script>
+
+    <script>
+      if (!sessionStorage.getItem("bt_auth")) {
+        window.location.replace("login.html");
+      }
+
+      document
+        .getElementById("logoutBtn")
+        .addEventListener("click", function () {
+          sessionStorage.removeItem("bt_auth");
+          window.location.href = "login.html";
+        });
+    </script>
+  </body>
+</html>

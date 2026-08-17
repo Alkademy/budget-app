@@ -1,0 +1,576 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FlowBudget — Your money, finally under control.</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="landing.css" />
+  </head>
+  <body>
+    <!-- ===== Announcement Bar ===== -->
+    <div id="announcementBar">
+      🎉 <strong>New:</strong> Family plan now available —
+      <a href="#pricing">Save 20% with yearly billing →</a>
+      <button id="dismissAnnouncement" aria-label="Dismiss">✕</button>
+    </div>
+
+    <!-- ===== Navbar ===== -->
+    <nav id="nav">
+      <div class="nav__inner">
+        <a href="#" class="nav__logo">
+          <div class="nav__logo-icon">$</div>
+          FlowBudget
+        </a>
+
+        <div id="navLinks">
+          <a href="#features">Features</a>
+          <a href="#how-it-works">How It Works</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#testimonials">Reviews</a>
+        </div>
+
+        <div class="nav__actions">
+          <a href="login.html" class="btn btn--ghost">Log in</a>
+          <a href="login.html" class="btn btn--primary">Get Started</a>
+        </div>
+
+        <button id="navToggle" aria-label="Toggle menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- ===== Hero ===== -->
+    <section class="hero">
+      <div class="hero__inner">
+        <div class="hero__left">
+          <div class="hero__kicker">Trusted by 50,000+ users</div>
+
+          <h1 class="hero__heading">
+            Your money,<br />finally<br /><em>under control.</em>
+          </h1>
+
+          <p class="hero__sub">
+            Stop wondering where your money went. FlowBudget gives you clarity,
+            control, and confidence — in minutes.
+          </p>
+
+          <div class="hero__ctas">
+            <a href="login.html" class="btn btn--primary btn--lg"
+              >Start for free</a
+            >
+            <a href="#how-it-works" class="btn btn--outline btn--lg"
+              >See how it works</a
+            >
+          </div>
+
+          <div class="hero__stats">
+            <div class="hero__stat">
+              <div class="hero__stat-value" data-count="4.9" data-suffix="">
+                4.9
+              </div>
+              <div class="hero__stat-label">App Store rating</div>
+            </div>
+            <div class="hero__stat">
+              <div class="hero__stat-value" data-count="2" data-suffix="M+">
+                2M+
+              </div>
+              <div class="hero__stat-label">Transactions tracked</div>
+            </div>
+            <div class="hero__stat">
+              <div class="hero__stat-value" data-count="34" data-suffix="%">
+                34%
+              </div>
+              <div class="hero__stat-label">Avg. savings increase</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero__right">
+          <div class="hero__mock-panel">
+            <div class="mock-panel-bar">
+              <div class="mock-panel-dot"></div>
+              <div class="mock-panel-dot"></div>
+              <div class="mock-panel-dot"></div>
+            </div>
+            <div class="mock-top-row">
+              <div class="mock-card">
+                <div class="mock-card-label">Budget</div>
+                <div class="mock-card-value orange">$2,000</div>
+              </div>
+              <div class="mock-card">
+                <div class="mock-card-label">Remaining</div>
+                <div class="mock-card-value green">$660</div>
+              </div>
+            </div>
+            <div class="mock-rows">
+              <div class="mock-row">
+                <div class="mock-row-dot" style="background: #c2410c"></div>
+                <span>Monthly Rent</span>
+                <span>−$950.00</span>
+              </div>
+              <div class="mock-row">
+                <div class="mock-row-dot" style="background: #16a34a"></div>
+                <span>Grocery Run</span>
+                <span>−$87.40</span>
+              </div>
+              <div class="mock-row">
+                <div class="mock-row-dot" style="background: #d97706"></div>
+                <span>Uber to airport</span>
+                <span>−$34.00</span>
+              </div>
+              <div class="mock-row">
+                <div class="mock-row-dot" style="background: #7c3aed"></div>
+                <span>Amazon order</span>
+                <span>−$63.99</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Press Strip ===== -->
+    <div class="press">
+      <div class="press__inner">
+        <span class="press__label">As seen in</span>
+        <div class="press__logos">
+          <span class="press__logo">Forbes</span>
+          <span class="press__logo">TechCrunch</span>
+          <span class="press__logo">Wired</span>
+          <span class="press__logo">Bloomberg</span>
+          <span class="press__logo">The Verge</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== Features ===== -->
+    <section id="features" class="section">
+      <div class="section__inner">
+        <span class="section-tag reveal">Features</span>
+        <h2 class="section__heading reveal">Everything you need.</h2>
+        <p class="section__sub reveal">
+          No bloat, no noise — just the tools that actually move the needle on
+          your finances.
+        </p>
+
+        <div class="features-list">
+          <div class="feature-row reveal">
+            <span class="feature-row__num">01</span>
+            <div class="feature-row__name">
+              <span class="feature-row__icon">📊</span>
+              <span class="feature-row__title">Smart Budgeting</span>
+            </div>
+            <p class="feature-row__desc">
+              Set adaptive category limits that flex with your spending habits.
+              Real-time overspend alerts keep you from blowing your budget
+              before the month ends.
+            </p>
+          </div>
+          <div class="feature-row reveal">
+            <span class="feature-row__num">02</span>
+            <div class="feature-row__name">
+              <span class="feature-row__icon">🔗</span>
+              <span class="feature-row__title">Auto-Sync Accounts</span>
+            </div>
+            <p class="feature-row__desc">
+              Connect your banks and credit cards securely. Transactions import
+              automatically so you're always working with live, accurate data.
+            </p>
+          </div>
+          <div class="feature-row reveal">
+            <span class="feature-row__num">03</span>
+            <div class="feature-row__name">
+              <span class="feature-row__icon">🎯</span>
+              <span class="feature-row__title">Goal Tracking</span>
+            </div>
+            <p class="feature-row__desc">
+              Create savings goals with visual progress bars. Whether it's an
+              emergency fund, vacation, or down payment — see your progress
+              every day.
+            </p>
+          </div>
+          <div class="feature-row reveal">
+            <span class="feature-row__num">04</span>
+            <div class="feature-row__name">
+              <span class="feature-row__icon">📈</span>
+              <span class="feature-row__title">Insights &amp; Reports</span>
+            </div>
+            <p class="feature-row__desc">
+              Visual spending breakdowns that make patterns impossible to miss.
+              Understand your habits so you can actually change them.
+            </p>
+          </div>
+          <div class="feature-row reveal">
+            <span class="feature-row__num">05</span>
+            <div class="feature-row__name">
+              <span class="feature-row__icon">🔔</span>
+              <span class="feature-row__title">Bill Reminders</span>
+            </div>
+            <p class="feature-row__desc">
+              Never pay a late fee again. Track subscriptions and recurring
+              charges, and get alerts before due dates arrive.
+            </p>
+          </div>
+          <div class="feature-row reveal">
+            <span class="feature-row__num">06</span>
+            <div class="feature-row__name">
+              <span class="feature-row__icon">🔒</span>
+              <span class="feature-row__title">Bank-Level Security</span>
+            </div>
+            <p class="feature-row__desc">
+              256-bit encryption and read-only bank access. Your data stays
+              yours — private, protected, and never sold.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== How It Works ===== -->
+    <section
+      id="how-it-works"
+      class="section"
+      style="background: var(--bg-warm)"
+    >
+      <div class="section__inner">
+        <span class="section-tag reveal">How It Works</span>
+        <h2 class="section__heading reveal">Up and running in minutes.</h2>
+        <p class="section__sub reveal">
+          Three steps. No complicated setup. No learning curve.
+        </p>
+
+        <div class="hiw-steps">
+          <div class="hiw-step hiw-step--active reveal">
+            <div class="hiw-step__num">01</div>
+            <h3 class="hiw-step__title">Create your account</h3>
+            <p class="hiw-step__desc">
+              Sign up free in under 60 seconds. No credit card required.
+            </p>
+          </div>
+          <div class="hiw-step reveal">
+            <div class="hiw-step__num">02</div>
+            <h3 class="hiw-step__title">Connect your accounts</h3>
+            <p class="hiw-step__desc">
+              Link your banks and cards securely. We import your transactions
+              automatically.
+            </p>
+          </div>
+          <div class="hiw-step reveal">
+            <div class="hiw-step__num">03</div>
+            <h3 class="hiw-step__title">Set budgets &amp; goals</h3>
+            <p class="hiw-step__desc">
+              Define spending limits and savings targets. We'll help you stay on
+              track every day.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Pricing ===== -->
+    <section id="pricing" class="section">
+      <div class="section__inner">
+        <span class="section-tag reveal">Pricing</span>
+        <h2 class="section__heading reveal">Simple, transparent pricing.</h2>
+        <p class="section__sub reveal">
+          No hidden fees. No lock-in. Cancel anytime.
+        </p>
+
+        <div class="pricing-toggle-wrap reveal">
+          <span class="period-label active" data-period="monthly">Monthly</span>
+          <button
+            id="pricingToggle"
+            aria-label="Toggle billing period"
+          ></button>
+          <span class="period-label" data-period="yearly"
+            >Yearly <span class="save-badge">Save 20%</span></span
+          >
+        </div>
+
+        <div class="reveal">
+          <table class="pricing-table">
+            <thead>
+              <tr>
+                <th>Plan</th>
+                <th>Free</th>
+                <th class="col-featured">Pro — Most Popular</th>
+                <th>Family</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td
+                  style="
+                    color: var(--text-muted);
+                    font-size: 0.8rem;
+                    font-weight: 600;
+                    text-transform: uppercase;
+                    letter-spacing: 0.06em;
+                  "
+                >
+                  Price / month
+                </td>
+                <td>
+                  <span
+                    class="price-cell price"
+                    data-monthly="$0"
+                    data-yearly="$0"
+                    >$0</span
+                  ><span class="price-period">forever free</span>
+                </td>
+                <td class="col-featured">
+                  <span
+                    class="price-cell price"
+                    data-monthly="$9"
+                    data-yearly="$7"
+                    >$9</span
+                  ><span
+                    class="price-period"
+                    style="color: rgba(255, 255, 255, 0.5)"
+                    >billed monthly</span
+                  >
+                </td>
+                <td>
+                  <span
+                    class="price-cell price"
+                    data-monthly="$15"
+                    data-yearly="$12"
+                    >$15</span
+                  ><span class="price-period">billed monthly</span>
+                </td>
+              </tr>
+              <tr>
+                <td>Linked accounts</td>
+                <td>2</td>
+                <td class="col-featured">Unlimited</td>
+                <td>Unlimited</td>
+              </tr>
+              <tr>
+                <td>Categories</td>
+                <td>Basic</td>
+                <td class="col-featured">Custom</td>
+                <td>Custom</td>
+              </tr>
+              <tr>
+                <td>Monthly reports</td>
+                <td><span class="check">✓</span></td>
+                <td class="col-featured">
+                  <span class="check" style="color: #86efac">✓</span>
+                </td>
+                <td><span class="check">✓</span></td>
+              </tr>
+              <tr>
+                <td>Savings goals</td>
+                <td>1</td>
+                <td class="col-featured">Unlimited</td>
+                <td>Unlimited</td>
+              </tr>
+              <tr>
+                <td>Bill tracking</td>
+                <td><span class="dash">—</span></td>
+                <td class="col-featured">
+                  <span class="check" style="color: #86efac">✓</span>
+                </td>
+                <td><span class="check">✓</span></td>
+              </tr>
+              <tr>
+                <td>Advanced insights</td>
+                <td><span class="dash">—</span></td>
+                <td class="col-featured">
+                  <span class="check" style="color: #86efac">✓</span>
+                </td>
+                <td><span class="check">✓</span></td>
+              </tr>
+              <tr>
+                <td>Family members</td>
+                <td><span class="dash">—</span></td>
+                <td class="col-featured">
+                  <span class="dash" style="color: rgba(255, 255, 255, 0.2)"
+                    >—</span
+                  >
+                </td>
+                <td>Up to 5</td>
+              </tr>
+              <tr>
+                <td>Priority support</td>
+                <td><span class="dash">—</span></td>
+                <td class="col-featured">
+                  <span class="check" style="color: #86efac">✓</span>
+                </td>
+                <td><span class="check">✓</span></td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr>
+                <td></td>
+                <td>
+                  <a href="login.html" class="btn btn--outline btn--full"
+                    >Get started</a
+                  >
+                </td>
+                <td class="col-featured">
+                  <a href="login.html" class="btn btn--primary btn--full"
+                    >Start free trial</a
+                  >
+                </td>
+                <td>
+                  <a href="login.html" class="btn btn--outline btn--full"
+                    >Get started</a
+                  >
+                </td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Testimonials ===== -->
+    <section
+      id="testimonials"
+      class="section"
+      style="background: var(--bg-warm)"
+    >
+      <div class="section__inner">
+        <span class="section-tag reveal">Reviews</span>
+        <h2 class="section__heading reveal">Real people, real results.</h2>
+
+        <div class="testimonials-grid">
+          <div class="testimonial-card testimonial-card--dark reveal">
+            <span class="testimonial-card__quote-mark">"</span>
+            <div class="testimonial-card__stars">★★★★★</div>
+            <p class="testimonial-card__quote">
+              FlowBudget completely changed how I think about money. I saved
+              $3,200 in my first six months without feeling deprived.
+            </p>
+            <div class="testimonial-card__footer">
+              <div class="testimonial-card__avatar">SM</div>
+              <div>
+                <div class="testimonial-card__name">Sara Mitchell</div>
+                <div class="testimonial-card__role">Freelance Designer</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card reveal">
+            <span class="testimonial-card__quote-mark">"</span>
+            <div class="testimonial-card__stars">★★★★★</div>
+            <p class="testimonial-card__quote">
+              Finally, a budgeting app that doesn't feel like homework. The
+              insights are actually useful and the UI is gorgeous.
+            </p>
+            <div class="testimonial-card__footer">
+              <div class="testimonial-card__avatar">JR</div>
+              <div>
+                <div class="testimonial-card__name">James Rodriguez</div>
+                <div class="testimonial-card__role">Software Engineer</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card reveal">
+            <span class="testimonial-card__quote-mark">"</span>
+            <div class="testimonial-card__stars">★★★★★</div>
+            <p class="testimonial-card__quote">
+              My partner and I use the Family plan to manage our household
+              budget. It's eliminated so many money arguments.
+            </p>
+            <div class="testimonial-card__footer">
+              <div class="testimonial-card__avatar">EK</div>
+              <div>
+                <div class="testimonial-card__name">Emily Kim</div>
+                <div class="testimonial-card__role">Marketing Manager</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CTA Band ===== -->
+    <section class="cta-band">
+      <div class="cta-band__inner reveal">
+        <div>
+          <h2 class="cta-band__heading">Ready to take control?</h2>
+          <p class="cta-band__sub">
+            Join 50,000+ people who've already transformed their relationship
+            with money.
+          </p>
+        </div>
+        <div>
+          <form id="ctaForm" class="cta-form">
+            <input
+              type="email"
+              id="ctaEmail"
+              placeholder="Enter your email address"
+              required
+            />
+            <button type="submit" id="ctaBtn" class="btn btn--primary">
+              Get started free
+            </button>
+          </form>
+          <p class="cta-form__note" style="margin-top: 0.5rem">
+            No credit card required · Free forever plan available
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Footer ===== -->
+    <footer class="footer">
+      <div class="footer__grid">
+        <div>
+          <div class="footer__brand-logo">
+            <div class="footer__brand-icon">$</div>
+            FlowBudget
+          </div>
+          <p class="footer__tagline">
+            Making personal finance simple, beautiful, and accessible for
+            everyone.
+          </p>
+        </div>
+        <div>
+          <p class="footer__col-heading">Product</p>
+          <ul class="footer__links">
+            <li><a href="#features">Features</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+            <li><a href="#how-it-works">How It Works</a></li>
+            <li><a href="#">Mobile App</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer__col-heading">Company</p>
+          <ul class="footer__links">
+            <li><a href="#">About</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Press</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer__col-heading">Support</p>
+          <ul class="footer__links">
+            <li><a href="#">Help Center</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">Privacy</a></li>
+            <li><a href="#">Terms</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        &copy; 2026 FlowBudget. All rights reserved.
+      </div>
+    </footer>
+
+    <script src="landing.js"></script>
+  </body>
+</html>
