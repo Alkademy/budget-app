@@ -16,17 +16,17 @@ const monthFmt = new Intl.DateTimeFormat('en-US', {
 
 const CATEGORIES = {
   expense: [
-    { id: 'food', label: 'Food & drink', color: '#f59e0b', glyph: '☕' },
-    { id: 'housing', label: 'Housing', color: '#a78bfa', glyph: '⌂' },
-    { id: 'transport', label: 'Transport', color: '#38bdf8', glyph: '▸' },
-    { id: 'health', label: 'Health', color: '#fb7185', glyph: '+' },
-    { id: 'shopping', label: 'Shopping', color: '#e879f9', glyph: '◇' },
-    { id: 'other', label: 'Other', color: '#94a3b8', glyph: '●' },
+    { id: 'food', label: 'Food & drink', color: '#b45309', glyph: '☕' },
+    { id: 'housing', label: 'Housing', color: '#6d28d9', glyph: '⌂' },
+    { id: 'transport', label: 'Transport', color: '#0369a1', glyph: '▸' },
+    { id: 'health', label: 'Health', color: '#c45c3e', glyph: '+' },
+    { id: 'shopping', label: 'Shopping', color: '#a21caf', glyph: '◇' },
+    { id: 'other', label: 'Other', color: '#78716c', glyph: '●' },
   ],
   income: [
-    { id: 'salary', label: 'Salary', color: '#5eead4', glyph: '★' },
-    { id: 'freelance', label: 'Freelance', color: '#34d399', glyph: '✦' },
-    { id: 'other-in', label: 'Other income', color: '#fbbf24', glyph: '●' },
+    { id: 'salary', label: 'Salary', color: '#1f6b4a', glyph: '★' },
+    { id: 'freelance', label: 'Freelance', color: '#0f766e', glyph: '✦' },
+    { id: 'other-in', label: 'Other income', color: '#b45309', glyph: '●' },
   ],
 };
 
@@ -195,8 +195,8 @@ function renderBreakdown(list) {
   els.donutTotal.textContent = total ? money.format(total).replace('.00', '') : '$0';
 
   if (!total) {
-    els.donut.style.background = 'conic-gradient(rgba(148,163,184,0.18) 0 100%)';
-    els.legend.innerHTML = '';
+    els.donut.style.background = 'conic-gradient(#e7e0d4 0 100%)';
+    els.legend.replaceChildren();
     const note = document.createElement('li');
     note.className = 'empty-note';
     note.textContent = 'Expenses will ring this chart by category.';
@@ -243,7 +243,11 @@ function renderLedger(list) {
   if (!list.length) {
     const empty = document.createElement('div');
     empty.className = 'empty-ledger';
-    empty.innerHTML = '<strong>Quiet month</strong><span>Nothing matches this view yet.</span>';
+    const title = document.createElement('strong');
+    title.textContent = 'Quiet month';
+    const note = document.createElement('span');
+    note.textContent = 'Nothing matches this view yet.';
+    empty.append(title, note);
     els.ledger.appendChild(empty);
     return;
   }
@@ -409,6 +413,25 @@ els.form.addEventListener('submit', (event) => {
   resetForm();
   render();
 });
+
+const nav = document.getElementById('site-nav');
+const navToggle = document.getElementById('nav-toggle');
+
+if (navToggle && nav) {
+  navToggle.addEventListener('click', () => {
+    const open = nav.classList.toggle('is-open');
+    navToggle.setAttribute('aria-expanded', String(open));
+    navToggle.textContent = open ? 'Close' : 'Menu';
+  });
+
+  nav.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => {
+      nav.classList.remove('is-open');
+      navToggle.setAttribute('aria-expanded', 'false');
+      navToggle.textContent = 'Menu';
+    });
+  });
+}
 
 load();
 els.date.value = todayInputValue();

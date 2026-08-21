@@ -3,136 +3,251 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lumina — Budget</title>
+  <meta name="description" content="Lumina is a calm personal budget workspace. Track income, spending, and what you keep each month — privately in your browser.">
+  <title>Lumina — A quieter way to see your money</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="orb orb-a" aria-hidden="true"></div>
-  <div class="orb orb-b" aria-hidden="true"></div>
+  <a class="skip" href="#app">Skip to ledger</a>
 
-  <div class="shell">
-    <header class="topbar">
-      <div class="brand">
+  <header class="site-header">
+    <div class="nav-wrap">
+      <a class="brand" href="#top">
         <span class="logo" aria-hidden="true"></span>
+        <span>Lumina</span>
+      </a>
+      <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="site-nav">
+        Menu
+      </button>
+      <nav id="site-nav" class="site-nav">
+        <a href="#product">Product</a>
+        <a href="#features">Features</a>
+        <a href="#app">Ledger</a>
+        <a href="#about">About</a>
+        <a class="nav-cta" href="#app">Open workspace</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero-page" id="product">
+      <div class="hero-copy">
+        <p class="eyebrow">Personal finance, uncluttered</p>
+        <h1>See the month clearly, before it slips away.</h1>
+        <p class="lede">Lumina is a private ledger for income, spending, and what you actually keep. No accounts. No noise. Just a calm workspace that lives in your browser.</p>
+        <div class="hero-actions">
+          <a class="btn-primary" href="#app">Start this month</a>
+          <a class="btn-ghost" href="#features">How it works</a>
+        </div>
+        <dl class="hero-stats">
+          <div>
+            <dt>Private by default</dt>
+            <dd>Saved only on this device</dd>
+          </div>
+          <div>
+            <dt>Built for months</dt>
+            <dd>Not endless transaction dumps</dd>
+          </div>
+          <div>
+            <dt>Ready in seconds</dt>
+            <dd>Add a paycheck and go</dd>
+          </div>
+        </dl>
+      </div>
+      <aside class="hero-card" aria-hidden="true">
+        <p class="preview-kicker">August snapshot</p>
+        <p class="preview-balance">$2,480.00</p>
+        <p class="preview-note">Kept from $6,200 earned</p>
+        <div class="preview-bars">
+          <div><span>Housing</span><i style="--w:78%"></i></div>
+          <div><span>Food</span><i style="--w:54%"></i></div>
+          <div><span>Transport</span><i style="--w:31%"></i></div>
+        </div>
+      </aside>
+    </section>
+
+    <section class="features" id="features">
+      <div class="section-head">
+        <p class="eyebrow">Designed to stay out of the way</p>
+        <h2>A ledger that feels like a well-made notebook.</h2>
+      </div>
+      <div class="feature-grid">
+        <article>
+          <h3>Month as the unit</h3>
+          <p>Flip between months, not infinite scroll. Each period has a balance, a savings rate, and a story.</p>
+        </article>
+        <article>
+          <h3>Where it went</h3>
+          <p>Expenses ring a category chart automatically, so rent, groceries, and the rest stay distinct.</p>
+        </article>
+        <article>
+          <h3>Edit without friction</h3>
+          <p>Search, filter, correct a typo, or remove a duplicate. Your history stays tidy.</p>
+        </article>
+        <article>
+          <h3>Yours alone</h3>
+          <p>Nothing is uploaded. Entries stay in local storage on this computer, in this browser.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="workspace" id="app">
+      <div class="section-head workspace-head">
         <div>
-          <p class="brand-kicker">Personal ledger</p>
-          <h1>Lumina</h1>
+          <p class="eyebrow">Workspace</p>
+          <h2>Your ledger</h2>
+        </div>
+        <div class="month-nav" role="group" aria-label="Select month">
+          <button type="button" id="prev-month" class="icon-btn" aria-label="Previous month">‹</button>
+          <p id="month-label">August 2026</p>
+          <button type="button" id="next-month" class="icon-btn" aria-label="Next month">›</button>
         </div>
       </div>
-      <div class="month-nav" role="group" aria-label="Select month">
-        <button type="button" id="prev-month" class="icon-btn" aria-label="Previous month">‹</button>
-        <p id="month-label">August 2026</p>
-        <button type="button" id="next-month" class="icon-btn" aria-label="Next month">›</button>
+
+      <div class="layout">
+        <section class="panel hero">
+          <p class="muted">Available this month</p>
+          <p id="balance" class="balance" aria-live="polite">$0.00</p>
+          <div class="pulse-row">
+            <div class="stat">
+              <span class="dot in"></span>
+              <div>
+                <p class="muted">In</p>
+                <strong id="income-total">$0.00</strong>
+              </div>
+            </div>
+            <div class="stat">
+              <span class="dot out"></span>
+              <div>
+                <p class="muted">Out</p>
+                <strong id="expense-total">$0.00</strong>
+              </div>
+            </div>
+            <div class="stat">
+              <span class="dot save"></span>
+              <div>
+                <p class="muted">Kept</p>
+                <strong id="saved-rate">0%</strong>
+              </div>
+            </div>
+          </div>
+          <div class="spend-track" aria-hidden="true">
+            <div id="spend-fill" class="spend-fill"></div>
+          </div>
+          <p id="spend-caption" class="caption">Add income to see how much of it you keep.</p>
+        </section>
+
+        <section class="panel form-panel">
+          <div class="panel-head">
+            <h3 id="form-title">New entry</h3>
+            <button type="button" id="cancel-edit" class="text-btn" hidden>Cancel</button>
+          </div>
+          <form id="entry-form" novalidate>
+            <div class="type-toggle" role="radiogroup" aria-label="Entry type">
+              <label class="chip">
+                <input type="radio" name="type" value="expense" checked>
+                <span>Expense</span>
+              </label>
+              <label class="chip">
+                <input type="radio" name="type" value="income">
+                <span>Income</span>
+              </label>
+            </div>
+
+            <label class="field">
+              <span>Description</span>
+              <input id="description" type="text" placeholder="Morning coffee, paycheck…" autocomplete="off" maxlength="80" required>
+            </label>
+
+            <div class="grid-2">
+              <label class="field">
+                <span>Amount</span>
+                <input id="amount" type="number" inputmode="decimal" min="0.01" step="0.01" placeholder="0.00" required>
+              </label>
+              <label class="field">
+                <span>Date</span>
+                <input id="date" type="date" required>
+              </label>
+            </div>
+
+            <label class="field">
+              <span>Category</span>
+              <select id="category"></select>
+            </label>
+
+            <p id="form-error" class="error" role="alert" hidden></p>
+            <button type="submit" id="submit-btn" class="primary">Save entry</button>
+          </form>
+        </section>
+
+        <section class="panel breakdown">
+          <h3>Where it went</h3>
+          <div class="breakdown-body">
+            <div class="donut-wrap">
+              <div id="donut" class="donut" aria-hidden="true"></div>
+              <div class="donut-center">
+                <p class="muted">Spent</p>
+                <strong id="donut-total">$0</strong>
+              </div>
+            </div>
+            <ul id="legend" class="legend"></ul>
+          </div>
+        </section>
+
+        <section class="panel ledger">
+          <div class="panel-head">
+            <h3>Activity</h3>
+            <input id="search" type="search" placeholder="Search…" aria-label="Search activity">
+          </div>
+          <div class="filters" role="group" aria-label="Filter activity">
+            <button type="button" class="pill is-on" data-filter="all">All</button>
+            <button type="button" class="pill" data-filter="income">Income</button>
+            <button type="button" class="pill" data-filter="expense">Expenses</button>
+          </div>
+          <div id="ledger"></div>
+        </section>
       </div>
-    </header>
+    </section>
 
-    <main class="layout">
-      <section class="hero panel">
-        <p class="muted">Available this month</p>
-        <p id="balance" class="balance" aria-live="polite">$0.00</p>
-        <div class="pulse-row">
-          <div class="stat">
-            <span class="dot in"></span>
-            <div>
-              <p class="muted">In</p>
-              <strong id="income-total">$0.00</strong>
-            </div>
-          </div>
-          <div class="stat">
-            <span class="dot out"></span>
-            <div>
-              <p class="muted">Out</p>
-              <strong id="expense-total">$0.00</strong>
-            </div>
-          </div>
-          <div class="stat">
-            <span class="dot save"></span>
-            <div>
-              <p class="muted">Saved</p>
-              <strong id="saved-rate">0%</strong>
-            </div>
-          </div>
+    <section class="about" id="about">
+      <div class="about-grid">
+        <div>
+          <p class="eyebrow">About Lumina</p>
+          <h2>A small site for a serious habit.</h2>
+          <p>Most budget tools try to be a bank, a coach, and an ad network. Lumina is a website with one job: help you look at a month and tell the truth about it.</p>
         </div>
-        <div class="spend-track" aria-hidden="true">
-          <div id="spend-fill" class="spend-fill"></div>
-        </div>
-        <p id="spend-caption" class="caption">Add income to see how much of it you keep.</p>
-      </section>
+        <ul>
+          <li>Works offline after the first load</li>
+          <li>No signup, email, or tracking pixels</li>
+          <li>Clear this site’s storage anytime to reset</li>
+        </ul>
+      </div>
+    </section>
+  </main>
 
-      <section class="panel form-panel">
-        <div class="panel-head">
-          <h2 id="form-title">New entry</h2>
-          <button type="button" id="cancel-edit" class="text-btn" hidden>Cancel</button>
-        </div>
-        <form id="entry-form" novalidate>
-          <div class="type-toggle" role="radiogroup" aria-label="Entry type">
-            <label class="chip">
-              <input type="radio" name="type" value="expense" checked>
-              <span>Expense</span>
-            </label>
-            <label class="chip">
-              <input type="radio" name="type" value="income">
-              <span>Income</span>
-            </label>
-          </div>
-
-          <label class="field">
-            <span>Description</span>
-            <input id="description" type="text" placeholder="Morning coffee, paycheck…" autocomplete="off" maxlength="80" required>
-          </label>
-
-          <div class="grid-2">
-            <label class="field">
-              <span>Amount</span>
-              <input id="amount" type="number" inputmode="decimal" min="0.01" step="0.01" placeholder="0.00" required>
-            </label>
-            <label class="field">
-              <span>Date</span>
-              <input id="date" type="date" required>
-            </label>
-          </div>
-
-          <label class="field">
-            <span>Category</span>
-            <select id="category"></select>
-          </label>
-
-          <p id="form-error" class="error" role="alert" hidden></p>
-          <button type="submit" id="submit-btn" class="primary">Save entry</button>
-        </form>
-      </section>
-
-      <section class="panel breakdown">
-        <h2>Where it went</h2>
-        <div class="breakdown-body">
-          <div class="donut-wrap">
-            <div id="donut" class="donut" aria-hidden="true"></div>
-            <div class="donut-center">
-              <p class="muted">Spent</p>
-              <strong id="donut-total">$0</strong>
-            </div>
-          </div>
-          <ul id="legend" class="legend"></ul>
-        </div>
-      </section>
-
-      <section class="panel ledger">
-        <div class="panel-head">
-          <h2>Activity</h2>
-          <input id="search" type="search" placeholder="Search…" aria-label="Search activity">
-        </div>
-        <div class="filters" role="group" aria-label="Filter activity">
-          <button type="button" class="pill is-on" data-filter="all">All</button>
-          <button type="button" class="pill" data-filter="income">Income</button>
-          <button type="button" class="pill" data-filter="expense">Expenses</button>
-        </div>
-        <div id="ledger"></div>
-      </section>
-    </main>
-  </div>
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div>
+        <p class="brand-foot">Lumina</p>
+        <p>A private monthly ledger for people who prefer quiet software.</p>
+      </div>
+      <div>
+        <p>Explore</p>
+        <a href="#product">Product</a>
+        <a href="#features">Features</a>
+        <a href="#app">Ledger</a>
+      </div>
+      <div>
+        <p>Notes</p>
+        <span>Data stays in your browser.</span>
+        <span>Made as a static website.</span>
+      </div>
+    </div>
+    <p class="copyright">© 2026 Lumina. All figures are yours.</p>
+  </footer>
 
   <script src="script.js"></script>
 </body>
