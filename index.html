@@ -1,79 +1,139 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Budget Tracker</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lumina — Budget</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="app">
-        <header class="header">
-            <p class="eyebrow">Personal finance</p>
-            <h1>Budget Tracker</h1>
-            <p class="subtitle">Track income and spending in one place.</p>
-        </header>
+  <div class="orb orb-a" aria-hidden="true"></div>
+  <div class="orb orb-b" aria-hidden="true"></div>
 
-        <section class="balance-card" aria-labelledby="balance-heading">
-            <h2 id="balance-heading">Your balance</h2>
-            <p id="balance" class="balance" aria-live="polite">$0.00</p>
-            <div class="totals">
-                <div class="total income">
-                    <span>Income</span>
-                    <strong id="income-total">$0.00</strong>
-                </div>
-                <div class="total expense">
-                    <span>Expenses</span>
-                    <strong id="expense-total">$0.00</strong>
-                </div>
+  <div class="shell">
+    <header class="topbar">
+      <div class="brand">
+        <span class="logo" aria-hidden="true"></span>
+        <div>
+          <p class="brand-kicker">Personal ledger</p>
+          <h1>Lumina</h1>
+        </div>
+      </div>
+      <div class="month-nav" role="group" aria-label="Select month">
+        <button type="button" id="prev-month" class="icon-btn" aria-label="Previous month">‹</button>
+        <p id="month-label">August 2026</p>
+        <button type="button" id="next-month" class="icon-btn" aria-label="Next month">›</button>
+      </div>
+    </header>
+
+    <main class="layout">
+      <section class="hero panel">
+        <p class="muted">Available this month</p>
+        <p id="balance" class="balance" aria-live="polite">$0.00</p>
+        <div class="pulse-row">
+          <div class="stat">
+            <span class="dot in"></span>
+            <div>
+              <p class="muted">In</p>
+              <strong id="income-total">$0.00</strong>
             </div>
-        </section>
-
-        <form id="transaction-form" class="card form" novalidate>
-            <h2>Add transaction</h2>
-
-            <label for="description">Description</label>
-            <input type="text" id="description" name="description" placeholder="e.g. Groceries" autocomplete="off" required>
-
-            <label for="amount">Amount</label>
-            <input type="number" id="amount" name="amount" placeholder="0.00" min="0.01" step="0.01" required>
-
-            <div class="form-row">
-                <div>
-                    <label for="type">Type</label>
-                    <select id="type" name="type">
-                        <option value="income">Income</option>
-                        <option value="expense">Expense</option>
-                    </select>
-                </div>
-                <div>
-                    <label for="category">Category</label>
-                    <select id="category" name="category">
-                        <option value="Salary">Salary</option>
-                        <option value="Food">Food</option>
-                        <option value="Housing">Housing</option>
-                        <option value="Transport">Transport</option>
-                        <option value="Other">Other</option>
-                    </select>
-                </div>
+          </div>
+          <div class="stat">
+            <span class="dot out"></span>
+            <div>
+              <p class="muted">Out</p>
+              <strong id="expense-total">$0.00</strong>
             </div>
+          </div>
+          <div class="stat">
+            <span class="dot save"></span>
+            <div>
+              <p class="muted">Saved</p>
+              <strong id="saved-rate">0%</strong>
+            </div>
+          </div>
+        </div>
+        <div class="spend-track" aria-hidden="true">
+          <div id="spend-fill" class="spend-fill"></div>
+        </div>
+        <p id="spend-caption" class="caption">Add income to see how much of it you keep.</p>
+      </section>
 
-            <p id="form-error" class="form-error" role="alert" hidden></p>
-            <button type="submit">Add transaction</button>
+      <section class="panel form-panel">
+        <div class="panel-head">
+          <h2 id="form-title">New entry</h2>
+          <button type="button" id="cancel-edit" class="text-btn" hidden>Cancel</button>
+        </div>
+        <form id="entry-form" novalidate>
+          <div class="type-toggle" role="radiogroup" aria-label="Entry type">
+            <label class="chip">
+              <input type="radio" name="type" value="expense" checked>
+              <span>Expense</span>
+            </label>
+            <label class="chip">
+              <input type="radio" name="type" value="income">
+              <span>Income</span>
+            </label>
+          </div>
+
+          <label class="field">
+            <span>Description</span>
+            <input id="description" type="text" placeholder="Morning coffee, paycheck…" autocomplete="off" maxlength="80" required>
+          </label>
+
+          <div class="grid-2">
+            <label class="field">
+              <span>Amount</span>
+              <input id="amount" type="number" inputmode="decimal" min="0.01" step="0.01" placeholder="0.00" required>
+            </label>
+            <label class="field">
+              <span>Date</span>
+              <input id="date" type="date" required>
+            </label>
+          </div>
+
+          <label class="field">
+            <span>Category</span>
+            <select id="category"></select>
+          </label>
+
+          <p id="form-error" class="error" role="alert" hidden></p>
+          <button type="submit" id="submit-btn" class="primary">Save entry</button>
         </form>
+      </section>
 
-        <section class="card history">
-            <div class="history-header">
-                <h2>History</h2>
-                <div class="filters" role="group" aria-label="Filter transactions">
-                    <button type="button" class="filter is-active" data-filter="all">All</button>
-                    <button type="button" class="filter" data-filter="income">Income</button>
-                    <button type="button" class="filter" data-filter="expense">Expenses</button>
-                </div>
+      <section class="panel breakdown">
+        <h2>Where it went</h2>
+        <div class="breakdown-body">
+          <div class="donut-wrap">
+            <div id="donut" class="donut" aria-hidden="true"></div>
+            <div class="donut-center">
+              <p class="muted">Spent</p>
+              <strong id="donut-total">$0</strong>
             </div>
-            <ul id="transaction-list"></ul>
-        </section>
-    </div>
-    <script src="script.js"></script>
+          </div>
+          <ul id="legend" class="legend"></ul>
+        </div>
+      </section>
+
+      <section class="panel ledger">
+        <div class="panel-head">
+          <h2>Activity</h2>
+          <input id="search" type="search" placeholder="Search…" aria-label="Search activity">
+        </div>
+        <div class="filters" role="group" aria-label="Filter activity">
+          <button type="button" class="pill is-on" data-filter="all">All</button>
+          <button type="button" class="pill" data-filter="income">Income</button>
+          <button type="button" class="pill" data-filter="expense">Expenses</button>
+        </div>
+        <div id="ledger"></div>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
